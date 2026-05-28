@@ -55,7 +55,7 @@ See `docs/GOAL.md` for the full vision.
 
 ## Profile
 
-- `profile/profile.json` — user preferences and targets
+- `profile/profile.md` — user preferences and targets
 - `profile/cv.tex` — LaTeX CV source
 - `profile/cv_builds/` — generated PDFs (gitignored)
 

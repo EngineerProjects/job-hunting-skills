@@ -62,7 +62,7 @@ See `docs/GOAL.md` for the full vision.
 
 ## Profile
 
-- User profile: `profile/profile.json`
+- User profile: `profile/profile.md`
 - CV source: `profile/cv.tex`
 - CV builds (gitignored): `profile/cv_builds/`
 - Outreach log: `profile/outreach_log.json`

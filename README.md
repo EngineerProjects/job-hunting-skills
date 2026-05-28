@@ -103,7 +103,7 @@ job-hunting-skills/
 │   └── prompts.md           # Architecture et principes
 │
 ├── profile/
-│   ├── profile.json         # Tes préférences, stack, localisations cibles
+│   ├── profile.md           # Tes préférences, stack, localisations cibles
 │   ├── cv.tex               # CV source en LaTeX (modulaire, max 1 page)
 │   └── cv_builds/           # PDFs générés par adaptation (gitignored)
 │
@@ -152,37 +152,15 @@ job-hunting-skills/
 
 ## Profil utilisateur
 
-Crée `profile/profile.json` :
+Remplis `profile/profile.md` avec tes vraies informations.
+Le fichier est déjà pré-rempli avec un exemple — remplace chaque champ.
 
-```json
-{
-  "personal": {
-    "name": "Ton Nom",
-    "email": "toi@example.com",
-    "phone": "+33 6 00 00 00 00",
-    "linkedin_url": "https://linkedin.com/in/ton-handle",
-    "location": "Paris, France"
-  },
-  "preferences": {
-    "seniority": "senior",
-    "remote": "remote",
-    "locations": ["Paris", "Remote", "Europe"],
-    "company_types": ["startup", "scale_up"],
-    "avoid": ["consulting", "ESN"],
-    "salary_target_eur": 85000
-  },
-  "stack": {
-    "must_have": ["python", "sql"],
-    "strong": ["spark", "dbt", "langchain", "fastapi", "docker", "kafka"],
-    "nice_to_have": ["go", "databricks", "rag"],
-    "avoid": ["php", "wordpress"]
-  },
-  "cv_variants": {
-    "data_engineer": "profile/cv_builds/cv_data_engineer.pdf",
-    "genai_engineer": "profile/cv_builds/cv_genai.pdf"
-  }
-}
-```
+Sections clés :
+- **Personal** — coordonnées, LinkedIn, GitHub
+- **Job preferences** — remote/hybride, types de boites, salaire
+- **Stack** — must-have, nice-to-have, à éviter
+- **Target companies** — tes cibles manuelles + paramètres auto-discovery
+- **Notes for the agent** — contexte spécifique que l'agent doit connaître
 
 ---
 

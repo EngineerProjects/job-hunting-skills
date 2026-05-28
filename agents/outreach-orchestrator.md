@@ -17,7 +17,7 @@ Cap at 5 targets per session (LinkedIn rate limit safety).
 ## Full Session Workflow
 
 ```
-1. Load profile/profile.json
+1. Load profile/profile.md
    → Verify all required fields are present
    → Check profile/cv.tex exists
    → Check pdflatex available (run: python scripts/build_cv.py --help)
@@ -37,7 +37,7 @@ Cap at 5 targets per session (LinkedIn rate limit safety).
    → User edits / approves each one
    → User sends manually on LinkedIn
 
-5. Log approved outreach to profile/outreach_log.json
+5. Log approved outreach to profile/outreach_log.json  (append only -- never overwrite)
 ```
 
 ---

@@ -22,7 +22,7 @@ User says any of:
 
 ## Prerequisites
 
-Read `profile/profile.json` before step 1. All decisions (language, salary filter, stack match, avoid list) come from it.
+Read `profile/profile.md` before step 1. All decisions (language, salary filter, stack match, avoid list) come from it.
 
 Required fields:
 - `personal.name`, `personal.linkedin_url`
@@ -31,13 +31,13 @@ Required fields:
 - `cv.source` (path to .tex file)
 - `cv.builds_dir` (output directory)
 
-If any required field is missing or still set to placeholder values ("Ton Nom", "toi@example.com"), stop and ask the user to fill in `profile/profile.json` first.
+If any required field is missing or still set to placeholder values ("Ton Nom", "toi@example.com"), stop and ask the user to fill in `profile/profile.md` first.
 
 ---
 
 ## Step 1 — Load profile
 
-Read `profile/profile.json`.
+Read `profile/profile.md`.
 
 Extract and confirm aloud:
 - Target role: `experience.current_title`
