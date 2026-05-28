@@ -1,0 +1,181 @@
+% ============================================================
+%  profile/cv.tex  —  CV source for linkedin-outreach skill
+% ============================================================
+%
+%  ANNOTATION SYSTEM
+%  -----------------
+%  Every \item can carry % @tag comments at end of line.
+%  The linkedin-outreach agent reads them to select/deselect
+%  bullets when adapting the CV per target company.
+%
+%  Tags currently defined:
+%    @data_engineer   Spark, Kafka, Airflow, dbt, warehouses, pipelines
+%    @genai           LLM apps, RAG, fine-tuning, AI in production
+%    @llm             LLM-specific (subset of @genai)
+%    @rag             Retrieval-augmented generation (subset of @genai)
+%    @ml_engineer     Feature engineering, MLflow, scikit-learn, model ops
+%    @backend         APIs, microservices, Docker, Kubernetes
+%    @cost            Cost reduction, perf optimisation, infra savings
+%    @leadership      Tech lead, mentoring, cross-team ownership
+%
+%  Bullets with NO tag = always included regardless of target.
+%  Add new tags freely as your experience evolves.
+%
+%  BUILD
+%  -----
+%    python scripts/build_cv.py \
+%      --input  profile/cv.tex \
+%      --output profile/cv_builds/cv_base.pdf
+%
+% ============================================================
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[
+  a4paper,
+  top=0.50in, bottom=0.45in,
+  left=0.55in, right=0.55in
+]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+% ── Accent colour ──────────────────────────────────────────
+\definecolor{accent}{RGB}{20, 80, 160}
+
+% ── No paragraph indent / skip ────────────────────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Section headers ───────────────────────────────────────
+\titleformat{\section}
+  {\bfseries\normalsize\uppercase}
+  {}{0em}{}
+  [\vspace{-4pt}\color{accent}\hrule\vspace{2pt}]
+\titlespacing*{\section}{0pt}{7pt}{2pt}
+
+% ── No page numbers ───────────────────────────────────────
+\pagestyle{empty}
+
+% ── Hyperlinks ────────────────────────────────────────────
+\hypersetup{
+  colorlinks = true,
+  urlcolor   = accent,
+  hidelinks
+}
+
+% ── Bullet list style ─────────────────────────────────────
+\setlist[itemize]{
+  leftmargin = 1.4em,
+  itemsep    = 0pt,
+  topsep     = 1pt,
+  parsep     = 0pt,
+  label      = \textbullet
+}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ── HEADER ──────────────────────────────────────────────────
+{%
+  \LARGE\bfseries Ton Nom
+  \hfill
+  \normalsize\normalfont
+  \href{mailto:toi@example.com}{toi@example.com}
+  ~\textbf{·}~
+  +33\,6\,00\,00\,00\,00
+  ~\textbf{·}~
+  Paris, France
+}
+
+\vspace{2pt}
+{%
+  \small
+  \href{https://linkedin.com/in/ton-handle}{linkedin.com/in/ton-handle}
+  ~\textbf{·}~
+  \href{https://github.com/ton-handle}{github.com/ton-handle}
+}
+
+\vspace{3pt}
+
+
+% ── SUMMARY ─────────────────────────────────────────────────
+\section{Profile}
+
+Senior Data Engineer with 6 years building production data infrastructure and GenAI systems.
+Strong on real-time pipelines, LLM orchestration, and the gap between data engineering and ML.
+Based in Paris, open to full-remote or hybrid.
+
+
+% ── EXPERIENCE ──────────────────────────────────────────────
+\section{Experience}
+
+% --- Job 1 (most recent) ---
+\textbf{Senior Data Engineer}
+\hfill \textit{Jan 2023 -- Present}\\
+\textit{[Entreprise A] \textemdash{} Paris / Remote}   % TODO: replace with real company
+\begin{itemize}
+  \item Built a real-time feature store serving 50M events/day on Kafka + Spark Structured Streaming % @data_engineer @backend
+  \item Reduced pipeline compute costs by 40\,\% via Spark adaptive query execution and partition pruning % @data_engineer @cost
+  \item Fine-tuned Mistral-7B on internal codebase for automated code review; deployed as a FastAPI service % @genai @llm
+  \item Designed a RAG system over 200\,K internal documents using LangChain + LangGraph + PGVector % @genai @rag
+  \item Migrated 80+ Airflow DAGs from 1.x to 2.x with zero downtime; cut scheduler lag by 60\,\% % @data_engineer @cost
+\end{itemize}
+
+\vspace{3pt}
+
+% --- Job 2 ---
+\textbf{Data Engineer}
+\hfill \textit{Jun 2021 -- Dec 2022}\\
+\textit{[Entreprise B] \textemdash{} Paris}   % TODO: replace with real company
+\begin{itemize}
+  \item Built and owned a dbt + Snowflake data warehouse serving 15 analysts across 4 business units % @data_engineer
+  \item Reduced time-to-insight from 3 days to 4 hours by redesigning the ingestion and transformation layers % @data_engineer @cost
+  \item Delivered ML feature pipelines for a churn model that improved retention by 12\,\% (scikit-learn + MLflow) % @ml_engineer
+  \item Containerised all data workloads with Docker; orchestrated on Kubernetes (GKE) % @backend
+\end{itemize}
+
+\vspace{3pt}
+
+% --- Job 3 ---
+\textbf{Junior Data Engineer}
+\hfill \textit{Sep 2019 -- May 2021}\\
+\textit{[Entreprise C] \textemdash{} Paris}   % TODO: replace with real company
+\begin{itemize}
+  \item Developed Python ETL pipelines ingesting 5M rows/day from 12 REST API sources % @data_engineer
+  \item Built Metabase dashboards consumed by 50+ business users; automated weekly reporting (8\,h/week saved) % @cost
+  \item Mentored 2 data analysts on SQL and Python, leading weekly technical workshops % @leadership
+\end{itemize}
+
+
+% ── EDUCATION ───────────────────────────────────────────────
+\section{Education}
+
+\textbf{Diplôme d'Ingénieur --- [Spécialité Informatique / Data]}
+\hfill \textit{2019}\\
+\textit{[École], [Ville]}   % TODO: replace with real school
+
+
+% ── SKILLS ──────────────────────────────────────────────────
+\section{Technical Skills}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}ll}
+  \textbf{Languages}        & Python, SQL, Bash, Go (notions) \\[1pt]
+  \textbf{Data Engineering} & Spark, Kafka, Airflow, dbt, Snowflake, PostgreSQL, Flink (notions) \\[1pt]
+  \textbf{GenAI / ML}       & LangChain, LangGraph, LlamaIndex, MLflow, scikit-learn, HuggingFace \\[1pt]
+  \textbf{Infra}            & Docker, Kubernetes, Terraform, GCP (BigQuery, GKE, Pub/Sub), AWS (S3, Lambda) \\[1pt]
+  \textbf{Other}            & FastAPI, Redis, GitHub Actions, Databricks (notions) \\
+\end{tabular}
+\endgroup
+
+% ============================================================
+\end{document}
+% ============================================================
