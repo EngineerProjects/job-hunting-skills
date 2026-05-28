@@ -11,6 +11,7 @@ Each skill is single-purpose and follows the draft -> approval pattern. Nothing 
 ## When to use this bundle
 
 - **Envoyer une candidature spontanée, trouver un contact chez une entreprise, préparer un dossier, adapter mon CV, rédiger un InMail, chercher des entreprises qui recrutent** → use `linkedin-outreach`
+- **Scorer mon CV, corriger les faiblesses, détecter les tells IA, préparer le CV avant les candidatures, uploader un PDF CV** → use `linkedin-cv-reviewer`
 - **Writing a viral post** → use `linkedin-post-writer`
 - **Commenting on someone else's post** → use `linkedin-comment-drafter`
 - **Replying to a comment** (yours or someone else's) → use `linkedin-reply-handler`

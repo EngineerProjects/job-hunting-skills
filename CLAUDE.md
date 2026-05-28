@@ -67,6 +67,19 @@ See `docs/GOAL.md` for the full vision.
 - CV builds (gitignored): `profile/cv_builds/`
 - Outreach log: `profile/outreach_log.json`
 
+## CV naming convention
+
+Every CV file written to `profile/cv_builds/` must follow this pattern — no exceptions:
+
+| Situation | Pattern | Example |
+|---|---|---|
+| Adapted for a company | `cv_[company-slug]_[YYYYMMDD].pdf` | `cv_mistral-ai_20260528.pdf` |
+| Base (no adaptation) | `cv_base_[YYYYMMDD].pdf` | `cv_base_20260528.pdf` |
+| Reviewed/corrected | `cv_reviewed_[YYYYMMDD].pdf` | `cv_reviewed_20260528.pdf` |
+
+Slug rules: lowercase, spaces→hyphens, remove accents and special chars, max 20 chars.
+Never use spaces, uppercase, or underscores in the company slug.
+
 ---
 
 ## testing/ is gitignored
