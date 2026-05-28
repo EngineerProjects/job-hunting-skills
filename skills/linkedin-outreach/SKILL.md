@@ -177,19 +177,22 @@ Read the LaTeX source: `profile.cv.source` (default: `profile/cv.tex`).
 
 **CV naming convention — mandatory before every build:**
 
+Read the user's initials from `profile/profile.md` (Name field). Stéphane KPOVIESSI → `sk`.
+
 | Situation | Pattern | Example |
 |---|---|---|
-| Adapted for a company | `cv_[company-slug]_[YYYYMMDD].pdf` | `cv_mistral-ai_20260528.pdf` |
-| Base CV (no adaptation) | `cv_base_[YYYYMMDD].pdf` | `cv_base_20260528.pdf` |
+| Adapted for a company | `cv_[initials]_[company-slug]_[YYYYMMDD].pdf` | `cv_sk_mistral-ai_20260528.pdf` |
+| Base CV (no adaptation) | `cv_[initials]_base_[YYYYMMDD].pdf` | `cv_sk_base_20260528.pdf` |
 
+Initials: first letter of first name + first letter of last name, lowercase.
 Slug rules: lowercase, spaces→hyphens, no accents/special chars, max 20 chars.
 `Mistral AI` → `mistral-ai` / `Hugging Face` → `hugging-face` / `Back Market` → `back-market`
 
 **Build the PDF:**
 ```bash
 python scripts/build_cv.py \
-  --input /tmp/cv_[company-slug]_adapted.tex \
-  --output profile/cv_builds/cv_[company-slug]_[YYYYMMDD].pdf
+  --input /tmp/cv_[initials]_[company-slug]_adapted.tex \
+  --output profile/cv_builds/cv_[initials]_[company-slug]_[YYYYMMDD].pdf
 ```
 
 If the script returns exit code 1 (page count > 1):

@@ -169,11 +169,14 @@ profile/cv_v2_[YYYYMMDD].tex
 
 **CV naming rules** (apply every time a CV file is created or saved):
 
+Read the user's initials from `profile/profile.md` (Name field).
+First letter of first name + first letter of last name, lowercase. Stéphane KPOVIESSI → `sk`.
+
 | Situation | Name pattern | Example |
 |---|---|---|
-| Base CV, no adaptation | `cv_base_[YYYYMMDD].pdf` | `cv_base_20260528.pdf` |
-| Adapted for a company | `cv_[company-slug]_[YYYYMMDD].pdf` | `cv_mistral-ai_20260528.pdf` |
-| Reviewed/corrected version | `cv_reviewed_[YYYYMMDD].pdf` | `cv_reviewed_20260528.pdf` |
+| Base CV, no adaptation | `cv_[initials]_base_[YYYYMMDD].pdf` | `cv_sk_base_20260528.pdf` |
+| Adapted for a company | `cv_[initials]_[company-slug]_[YYYYMMDD].pdf` | `cv_sk_mistral-ai_20260528.pdf` |
+| Reviewed/corrected version | `cv_[initials]_reviewed_[YYYYMMDD].pdf` | `cv_sk_reviewed_20260528.pdf` |
 
 **Slug rules:**
 - Lowercase only

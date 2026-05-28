@@ -69,14 +69,16 @@ See `docs/GOAL.md` for the full vision.
 
 ## CV naming convention
 
-Every CV file written to `profile/cv_builds/` must follow this pattern — no exceptions:
+Every CV file written to `profile/cv_builds/` must follow this pattern — no exceptions.
+Read the user's initials from `profile/profile.md` (field: Name). For Stéphane KPOVIESSI → `sk`.
 
 | Situation | Pattern | Example |
 |---|---|---|
-| Adapted for a company | `cv_[company-slug]_[YYYYMMDD].pdf` | `cv_mistral-ai_20260528.pdf` |
-| Base (no adaptation) | `cv_base_[YYYYMMDD].pdf` | `cv_base_20260528.pdf` |
-| Reviewed/corrected | `cv_reviewed_[YYYYMMDD].pdf` | `cv_reviewed_20260528.pdf` |
+| Adapted for a company | `cv_[initials]_[company-slug]_[YYYYMMDD].pdf` | `cv_sk_mistral-ai_20260528.pdf` |
+| Base (no adaptation) | `cv_[initials]_base_[YYYYMMDD].pdf` | `cv_sk_base_20260528.pdf` |
+| Reviewed/corrected | `cv_[initials]_reviewed_[YYYYMMDD].pdf` | `cv_sk_reviewed_20260528.pdf` |
 
+Initials rules: first letter of first name + first letter of last name, lowercase.
 Slug rules: lowercase, spaces→hyphens, remove accents and special chars, max 20 chars.
 Never use spaces, uppercase, or underscores in the company slug.
 
