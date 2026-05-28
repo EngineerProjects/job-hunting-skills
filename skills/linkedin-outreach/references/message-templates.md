@@ -1,184 +1,314 @@
 # Message Templates — linkedin-outreach
 
-Templates for InMail, DM, and connection request notes. Each template has a slot for the anchor (research signal from step 4) and is pre-calibrated for voice rules.
+Real-pattern templates derived from messages that humans actually write and that get replies.
+Organized by **situation** and **tone**, not just by job search use case.
 
-**Before using**: replace all `[ANCHOR]`, `[COMPANY]`, `[ROLE]` placeholders with real content. Templates are starting points — rewrite the anchor line entirely for each target.
-
----
-
-## Template 1 — InMail to Technical Recruiter (EN)
-
-**When**: 2nd-degree recruiter at international / remote-first company.
-**Char target**: 600-900 chars.
-
-```
-[ANCHOR sentence — about something specific they announced, posted, or hired for recently]
-
-I've been following [COMPANY]'s work on [specific product/project] for a while and the direction feels like a strong fit for where I want to go next.
-
-Background: [N] years as a Senior Data Engineer, mainly on [top 2-3 stack items from profile]. Most recently [one concrete achievement with number]. I also work at the intersection of data and GenAI, which feels relevant given [company signal].
-
-If there's a fit, I'd be glad to have a 20-min call to see. I'm attaching my CV.
-
-[Name]
-```
+**Rule before using any template**: every `[PLACEHOLDER]` must be replaced with something
+real and specific. A template with unfilled brackets is worse than no message at all.
 
 ---
 
-## Template 2 — InMail to Technical Recruiter (FR)
+## Part 1 — Job outreach (spontaneous applications)
 
-**When**: 2nd-degree recruiter at French company.
-**Char target**: 600-900 chars.
+### 1-A — Cold InMail to recruiter, punchy (EN)
+
+Best when: you have a specific company signal (hiring spike, product launch, funding).
+Tone: direct, confident, human. Under 500 chars.
 
 ```
-[ANCHOR — phrase concrète sur ce qui vient de se passer chez eux]
+[ANCHOR — 1 specific thing that happened at the company recently]
 
-Je suis le travail de [COMPANY] depuis quelques mois, surtout [signal produit/technique], et la direction prise colle vraiment avec ce que je cherche.
+I've been building [what you do, 5 words max] for [N] years. Most recently [one concrete result with a number].
 
-Mon profil : [N] ans en tant que Senior Data Engineer, surtout sur [top 2-3 stack]. Dernièrement, [réalisation concrète avec chiffre]. Je travaille aussi sur des sujets GenAI, ce qui me semble pertinent au vu de [signal].
+Looking for the right Senior [Role] opportunity — [COMPANY]'s work on [specific product/area] is exactly the direction I want to go.
 
-Si c'est le bon moment pour en parler, une visio de 20 min serait parfaite. Je joins mon CV.
+Happy to send my CV if the timing is right.
+
+[First name]
+```
+
+Example (filled in):
+```
+Saw your engineering blog post on the new inference stack last week — the latency tradeoffs you described are exactly what I've been wrestling with.
+
+I've been building real-time data pipelines for 6 years. Most recently cut processing costs by 40% on a 200M event/day system at a Paris fintech.
+
+Looking for a Senior Data Engineer role — Mistral's infra direction is exactly where I want to go.
+
+Happy to send my CV if the timing is right.
+
+Yassine
+```
+
+---
+
+### 1-B — Cold InMail to recruiter, warmer (FR)
+
+Best when: French company, you have a real personal angle (community, conference, article they wrote).
+Tone: warm, direct, zero corporate speak.
+
+```
+[ANCHOR concret — quelque chose de récent et spécifique]
+
+J'ai passé [N] ans à construire [description courte] — dernièrement, [réalisation + chiffre]. Ce qui me distingue un peu : [ce qui est atypique dans ton profil, 1 phrase].
+
+Je cherche le bon Senior [Rôle] pour la suite. Ce que [COMPANY] construit sur [domaine] m'intéresse vraiment, pas juste comme entreprise.
+
+Je peux envoyer mon CV si c'est pertinent.
 
 [Prénom]
 ```
 
 ---
 
-## Template 3 — DM to Engineering Manager / Head of Data (EN)
+### 1-C — Message à un Engineering Manager (ton pair-à-pair)
 
-**When**: 1st or 2nd degree, technical manager. More direct than recruiter outreach.
-**Char target**: 500-800 chars.
-
-```
-[ANCHOR — reference their recent post, a talk they gave, or a technical decision they shared]
-
-I've been doing [brief description of relevant work — 1 sentence] and your post/talk/article resonated because [specific reason, not generic].
-
-Quick context: [N] years on [top 2 stack items], most recently [one number that proves it]. Currently open to [type of role] at the right team.
-
-Not sure if you have bandwidth for a 15-min chat but happy to sync if there's a mutual fit.
-
-[Name]
-```
-
----
-
-## Template 4 — DM to Engineering Manager / Head of Data (FR)
-
-**When**: 1st ou 2nd degré, manager technique dans une boite française.
-**Char target**: 500-800 chars.
+Best when: tu veux passer le filtre RH et parler directement à quelqu'un de technique.
+Tone: technical peer, curious, zero desperation.
 
 ```
-[ANCHOR — référence concrète à ce qu'ils ont posté, dit, ou construit récemment]
+[Référence à quelque chose qu'ils ont publié / présenté / fait]
 
-Je travaille sur des sujets proches ([description courte]) et ce que vous avez partagé sur [sujet] a retenu mon attention parce que [raison précise, pas générique].
+J'ai travaillé sur des sujets proches — [description courte de ce que tu fais, pas de titre]. Votre approche de [sujet technique] est intéressante parce que [pourquoi, 1 phrase vraiment précise].
 
-Contexte rapide : [N] ans sur [top 2 stack], dernièrement [réalisation + chiffre]. Je suis ouvert à [type de poste] dans la bonne équipe.
-
-Si vous avez 15 min pour en parler, je suis disponible — sinon aucun souci.
+Je suis actuellement en train de regarder ce que je fais ensuite. Si vous avez 15 min pour un échange tech, je suis preneur.
 
 [Prénom]
 ```
 
 ---
 
-## Template 5 — Connection Request Note (EN)
+### 1-D — Connection note (3rd degree / no connection), ultra-court (EN)
 
-**When**: 3rd degree or no connection. Hard 300-char limit.
-**Char target**: 200-280 chars.
+Hard 300-char wall. Every word earns its place.
 
 ```
-[ANCHOR — 1 sentence max, ultra specific]
-
-[N]-year Senior DE (Python/Spark/[top stack]). Interested in [COMPANY]'s direction. Happy to connect.
-
-[Name]
+[ANCHOR in one clause]. [N]-year [role] ([top 2 tech]). Interested in what [COMPANY] is building. Happy to connect.
 ```
 
-Example (real):
+Example:
 ```
-Saw your Series B announcement and the data platform role caught my eye.
+Saw the Series B and the data infra role. 6-year Data Engineer (Python/Spark). Interested in what Mistral is building. Happy to connect.
+```
+197 chars.
 
-6-year Senior DE, mostly Python/Spark/dbt. Keen on Mistral's direction. Happy to connect.
+---
+
+### 1-E — Connection note (3rd degree), FR
+
+```
+[ANCHOR en une phrase courte]. [N] ans en [rôle] ([top 2 tech]). Ce que fait [COMPANY] sur [sujet] m'intéresse vraiment. Ravi de connecter.
 ```
 
 ---
 
-## Template 6 — Connection Request Note (FR)
+### 1-F — Follow-up (7-10 days after, no reply) (EN)
 
-**When**: 3ème degré ou pas de connexion. Limite stricte 300 chars.
-**Char target**: 200-280 chars.
+One follow-up only. Never follow up a follow-up. Give them an exit ramp.
 
 ```
-[ANCHOR — 1 phrase, très spécifique]
+Quick follow-up on my message from [N days ago] — no pressure if the timing's off.
 
-[N] ans en Data Engineering (Python/Spark/[stack]). Intéressé par [COMPANY] et [ce qui est spécifique]. Ravi de connecter.
-```
+If there's a better person at [COMPANY] to reach for [type of role], happy to be pointed in the right direction.
 
-Exemple (réel) :
-```
-J'ai vu votre annonce de Série B et le poste Data Platform m'a interpellé.
-
-6 ans en Data Engineering, surtout Python/Spark/dbt. Très intéressé par Mistral. Ravi de connecter.
+[First name]
 ```
 
 ---
 
-## Template 7 — Follow-up (no reply after N days) (EN)
-
-**When**: `follow_up_due` date reached, original message sent, no reply.
-**Char target**: 200-350 chars.
-**Rule**: One follow-up max. Never follow up a follow-up.
+### 1-G — Relance (FR)
 
 ```
-Quick follow-up on my message from [N] days ago — no worries if the timing isn't right.
+Relance rapide sur mon message de [il y a N jours] — pas de souci si le moment n'est pas le bon.
 
-If there's a better person to reach out to at [COMPANY] for [type of role], happy to be pointed in the right direction.
-
-[Name]
-```
-
----
-
-## Template 8 — Follow-up (no reply) (FR)
-
-**When**: relance après `follow_up_days` jours sans réponse.
-**Char target**: 200-350 chars.
-
-```
-Relance rapide sur mon message de [il y a N jours] — pas de souci si le timing ne convient pas.
-
-Si quelqu'un d'autre chez [COMPANY] est la bonne personne pour [type de poste], je suis preneur d'une redirection.
+Si quelqu'un d'autre chez [COMPANY] est mieux placé pour parler de [type de poste], une redirection serait appréciée.
 
 [Prénom]
 ```
 
 ---
 
-## Anti-patterns — never use these
+## Part 2 — Networking (no immediate job ask)
 
-These openings get filtered mentally by every recruiter after the 50th copy-paste:
+These templates build the relationship. The job conversation, if it happens, comes later.
 
-| ❌ Never | ✅ Instead |
-|---|---|
-| "Je me permets de vous contacter" | Jump straight to the anchor |
-| "I hope this message finds you well" | Jump straight to the anchor |
-| "Je suis actuellement à la recherche de nouvelles opportunités" | Anchor first, context second |
-| "I came across your profile and was impressed" | Be specific about what and why |
-| "I would love to learn more about potential opportunities" | State what you want in one sentence |
-| "Please find attached my CV for your consideration" | "I'm attaching my CV" — active voice |
-| "Do not hesitate to contact me" | "Happy to sync for 20 min if there's a fit" |
-| "Looking forward to hearing from you" | Nothing, or a light CTA |
+### 2-A — Post reaction → connection (EN)
+
+Best when: they posted something that genuinely made you think. Don't fake this.
+Tone: curious, peer-level, no pitch.
+
+```
+Your post on [topic] hit on something I've been thinking about — specifically [the part that caught your attention in one sentence].
+
+I work on [what you do, no title] and [why their post is relevant to your world, 1 sentence].
+
+Would be good to connect.
+
+[First name]
+```
+
+Example:
+```
+Your post on feature store patterns hit on something I've been wrestling with — specifically the question of who owns the latency budget when data and ML teams disagree.
+
+I build real-time pipelines at a fintech and we ran into this exact split last quarter.
+
+Would be good to connect.
+
+Yassine
+```
 
 ---
 
-## Length calibration
+### 2-B — Réaction à un post → connexion (FR)
 
-| Type | Min | Target | Max |
+```
+Votre post sur [sujet] a soulevé quelque chose que j'avais en tête — surtout [la partie précise qui t'a touché, 1 phrase].
+
+Je travaille sur [ce que tu fais, sans titre] et [pourquoi leur post résonne avec ton travail, 1 phrase vraie].
+
+Ravi de connecter.
+
+[Prénom]
+```
+
+---
+
+### 2-C — Même secteur, découvert via mutuel (EN)
+
+Best when: you have a mutual connection and the person does interesting work.
+Tone: warm but professional. Reference the mutual.
+
+```
+[Mutual name] and I worked together at [company/event] and she mentioned you've been doing interesting things with [topic].
+
+I've been working on [what you do] for [N] years and [one overlap between your work and theirs].
+
+Wanted to connect — if you're ever up for a chat on [shared topic], I'd be keen.
+
+[First name]
+```
+
+---
+
+### 2-D — Event / conference meetup follow-up (EN)
+
+Best when: you actually talked to them. Reference something specific from the conversation.
+Tone: warm, personal, no pitch.
+
+```
+Great talking at [event name] [yesterday/last week]. The point you made about [specific thing they said] stuck with me.
+
+Let's stay in touch — I'll follow your work more closely.
+
+[First name]
+```
+
+Keep it under 200 chars. No ask. This is a relationship seed, not an outreach.
+
+---
+
+### 2-E — Fan of their work, genuinely (EN)
+
+Best when: they've published something — article, OSS project, talk — that you actually used or learned from. Only use this if it's true.
+Tone: genuine fan, zero flattery filler.
+
+```
+I read your [article/talk/project] on [topic] last [week/month] and used [specific part] for [specific thing you built/decided].
+
+Wanted to reach out because that kind of detailed breakdown is rare.
+
+No ask — just wanted to say it was useful.
+
+[First name]
+```
+
+This message never asks for anything. It still gets replies because it feels real.
+
+---
+
+### 2-F — Curiosity-driven, wanting to learn (EN)
+
+Best when: they're doing something you're trying to understand (architecture, business, career path).
+Tone: learner, specific, not a time-waster.
+
+```
+I've been following [COMPANY]'s [technical/product area] from the outside and have a genuine question about [specific thing you're curious about].
+
+I've worked on [relevant context — 1 sentence] so I'm not starting from zero — but I'd love to understand [the specific decision or trade-off you want to know about].
+
+Would you be open to a 20-min chat? Happy to do async too.
+
+[First name]
+```
+
+---
+
+### 2-G — Reconnect with someone you lost touch with (EN)
+
+Best when: you worked together or knew each other 2-5 years ago. No awkwardness, just directness.
+Tone: light, human, no excuse for being out of touch.
+
+```
+[Name] — it's been a while. I was [what triggered you to reach back out — seeing their post, a shared project topic, etc.].
+
+Hope things are going well at [current company]. Would be good to catch up at some point if you're up for it.
+
+[First name]
+```
+
+Short. No pitch. Never explain why you were out of touch — they don't care.
+
+---
+
+## Part 3 — Tone register reference
+
+Different contact types call for different registers. Match, don't copy.
+
+| Contact type | Register | Signal words | Avoid |
 |---|---|---|---|
-| InMail (recruiter) | 500 | 650-850 | 1,000 |
-| DM (EM/manager) | 350 | 500-700 | 900 |
-| Connection note | 150 | 200-270 | 300 |
-| Follow-up | 100 | 200-280 | 350 |
+| Technical recruiter | Direct, professional | "my CV", "the timing", "happy to send" | Flattery, "I'm excited" |
+| Engineering manager | Peer, technical | "I've worked on", "the trade-off", "curious about" | "opportunity", "leverage" |
+| VP / Director | Concise, confident | Numbers, one clear ask | Long context, humility theater |
+| Community peer | Casual, genuine | "saw your post", "similar space", "keen to connect" | Corporate speak, pitch |
+| Someone you know | Human, zero spin | Their name, real memory, no preamble | "reaching out to" |
+| Recruiter who reached out to you | Warm but selective | "looks interesting", "a few questions first" | Immediate yes, too eager |
 
-Under the min = looks lazy. Over the max = looks desperate. Sweet spot = reads in 20 seconds.
+---
+
+## Part 4 — What actually gets replies (from data)
+
+Patterns extracted from campaigns with 20%+ reply rates:
+
+**Short beats long.** Under 400 chars: +22% reply rate vs average. People read on phones.
+
+**First sentence decides everything.** If it's about you → delete. If it's about them, specific → keep.
+
+**One number.** "6 years" or "40% reduction" or "50M events/day" — one concrete data point anchors credibility. Zero numbers feels vague.
+
+**One ask, not two.** "20-min call" or "connect" — pick one. Two asks = no decision made.
+
+**Common ground multiplier.** Shared group: +21% reply rate. Shared former employer: +27% reply rate. Reference it if you have it.
+
+**Follow-up is not harassment.** 30% of replies come from the first follow-up. One follow-up, 7-10 days, with an exit ramp. Never a third message.
+
+**Curiosity > desperation.** "I'm looking for my next opportunity" tells them you need something. "Your post on X made me think" tells them you're paying attention. Same underlying situation, different signal.
+
+---
+
+## Part 5 — Things that kill response rate immediately
+
+Direct quotes of openers that get skipped every time:
+
+- "I hope this message finds you well"
+- "I am reaching out because I came across your profile"
+- "I was very impressed by your company's work"
+- "Je me permets de vous contacter suite à votre annonce"
+- "I believe I would be a great fit for your team"
+- "I am passionate about [industry]"
+- "Please do not hesitate to contact me"
+- "I would be honored to discuss potential synergies"
+- "As a seasoned professional with X years of experience"
+- Anything that starts with "I" in the first sentence
+
+The pattern: all of these are about the sender. The delete reflex is automatic.
