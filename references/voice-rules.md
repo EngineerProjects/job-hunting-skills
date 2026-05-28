@@ -10,51 +10,112 @@
 
 ## Vocabulary blacklist (EN)
 
-Never use in comments:
-- leverage, utilize, facilitate, streamline, robust, seamless, delve, navigate, unlock, harness, foster, cultivate
-- fundamentally, essentially, ultimately, crucially, notably
-- landscape, ecosystem, paradigm, realm, tapestry, journey
+Sources: GPTZero frequency study, Originality.ai 10M-word corpus, alstonantony.com 283-word analysis.
+Numbers in parentheses = how many times more frequent in AI text vs human text (GPTZero data).
+
+**Statistically extreme tells (frequency multiplier):**
+- "play a significant role in shaping" (182x)
+- "today's fast-paced world" / "in today's digital age" (107x)
+- "notable works include" (120x)
+- "aims to explore" (50x)
+- "showcasing" (20x), "aligns" (16x), "remarked" (18x)
+
+**Dramatic verbs — never use:**
+delve, unleash, unlock, unravel, navigate, redefine, foster, cultivate, transcend,
+empower, amplify, underscore, illuminate, galvanize, pioneer, revolutionize
+
+**Corporate jargon:**
+leverage, utilize, facilitate, streamline, implement, integrate, synergy, holistic,
+enable, proactive, robust, seamless, bespoke, cutting-edge, paradigm
+
+**Filler adjectives:**
+significant, crucial, essential, innovative, intrinsic, vital, dynamic, daunting,
+transformative, groundbreaking, remarkable, pivotal, paramount, compelling
+
+**Pretentious nouns:**
+tapestry, labyrinth, realm, landscape, ecosystem, testament, journey, endeavor,
+beacon, bastion, zeitgeist, ethos, dynamics, authenticity (as a buzzword)
+
+**Transition fillers that read as AI:**
+furthermore, moreover, consequently, subsequently, nevertheless, thus, overall,
+typically, generally, specifically, clearly, obviously, importantly, essentially,
+indeed, ultimately, certainly, conversely, correspondingly, cumulatively
+
+**Killer phrases:**
+- "It's important to note that"
+- "It's worth mentioning that"
+- "In conclusion" / "To summarize" / "In essence"
+- "As previously mentioned"
 - "It's not just X, it's Y"
-- "In today's fast-paced world"
 - "Game-changer", "deep dive", "at the end of the day"
 
 ## Vocabulary blacklist (FR) — mots à ne jamais écrire
 
-Ces mots sonnent AI immédiatement. En français, les tells sont souvent des adverbes longs
-et des tournures de dissertation.
+Sources: cours-ndrc.fr (2026), dubasque.org analyse lexicale, gpthuman.ai liste FR,
+MIT Study 2024 ("Dans le paysage actuel" apparaît dans 23% des introductions IA).
 
-**Adverbes et intensificateurs IA :**
-- particulièrement, notamment, essentiellement, fondamentalement, principalement
-- indéniablement, incontestablement, véritablement, réellement (quand utilisé pour insister)
+**Ouvertures signature IA — supprimer immédiatement :**
+- "Dans le paysage [actuel/moderne/contemporain] de…" (23% des intros IA selon MIT 2024)
+- "À l'ère de [X]…"
+- "Il est essentiel/crucial de noter que…"
+- "Plongeons dans…"
+- "Dans un monde où…"
+- "À l'heure où…"
+- "Il est indéniable que…"
+- "C'est dans ce contexte que…"
+- "Bien que [X], il n'en demeure pas moins que…"
+
+**Adverbes IA (les plus fréquents en FR) :**
+- particulièrement, notamment, spécifiquement
+- essentiellement, fondamentalement, intrinsèquement
+- indéniablement, incontestablement, véritablement
 - significativement, considérablement, substantiellement
+- principalement (quand utilisé comme remplissage)
 
-**Verbes et expressions de dissertation :**
+**Adjectifs en doublon — l'IA empile toujours deux synonymes :**
+- "crucial et essentiel", "robuste et fiable", "innovant et avant-gardiste"
+- "efficace et efficient", "dynamique et évolutif", "complet et exhaustif"
+Si tu as besoin des deux, l'un d'eux est de trop.
+
+**Verbes et tournures de dissertation :**
 - souligner, mettre en lumière, mettre en exergue, mettre en avant (quand c'est juste "dire")
 - il convient de, il est important de noter, il est essentiel de
 - permettre de (surutilisé — trouver le vrai verbe)
 - s'inscrire dans, s'articuler autour, s'appuyer sur
 - force est de constater
-- dans ce contexte, à cet égard, en la matière
+- dans ce contexte, à cet égard, en la matière, dans cette optique
+- cela étant dit (faux pivot)
 
-**Connecteurs de rédaction scolaire :**
-- dans un premier temps... dans un second temps... enfin
-- par ailleurs, qui plus est, de surcroît
-- quoi qu'il en soit, néanmoins (quand il n'y a pas de vrai contraste)
-- ainsi (en début de phrase pour conclure)
+**Connecteurs mécaniques :**
+- par ailleurs, en outre, de plus, qui plus est, de surcroît
+- quoi qu'il en soit, néanmoins (sans vrai contraste derrière)
+- ainsi (pour conclure une phrase banale)
 - en effet (pour introduire ce qui est évident)
+- dans un premier temps… dans un second temps… enfin
 
-**Ouvertures IA typiques :**
-- "Dans un monde où..."
-- "À l'heure où..."
-- "Il est indéniable que..."
-- "Cette approche innovante..."
-- "C'est dans ce contexte que..."
-- "Bien que [X], il n'en demeure pas moins que..."
+**Métaphores stock IA :**
+- "naviguer dans la complexité"
+- "au cœur de [stratégie/processus]"
+- "pierre angulaire de succès"
+- "écosystème de solutions"
+- "tisser des liens"
 
-**Mots valises :**
-- optimiser, fluidifier, dynamiser, valoriser (sans complément concret)
-- synergies, écosystème, paradigme, trajectoire (dans un sens vague)
-- approche, démarche (quand on peut dire le truc directement)
+**Mots valises et jargon marketing :**
+- optimiser, fluidifier, dynamiser, valoriser, catalyser (sans objet concret)
+- synergies, écosystème, paradigme, trajectoire, démarche (dans un sens vague)
+- "solutions de pointe", "excellence inégalée", "approche innovante"
+- "déverrouillez le pouvoir de", "révolutionnez la façon dont"
+
+**Anglicismes IA en FR :**
+- insights (→ "résultats", "observations")
+- disruption (→ "rupture")
+- pivotal (→ "décisif", "clé")
+
+**Patterns structurels trahissant l'IA (langue-agnostique) :**
+- Listes de exactement 3, 5, 7 ou 10 éléments
+- Paragraphes de longueur quasi-identique (variance < 20 mots)
+- Ton émotionnel uniforme du début à la fin, sans aspérités
+- Cycle intro + développement + transition répété mécaniquement
 
 **Règle de remplacement :** si tu retires le mot et la phrase dit la même chose, retire-le.
 "Il est important de noter que les résultats sont bons" → "Les résultats sont bons."
