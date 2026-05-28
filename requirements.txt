@@ -1,0 +1,21 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AI Job Hunting Skill Suite — Python Dependencies
+#
+# Design principle: the running agent handles all reasoning and content
+# generation. Scripts handle external I/O only (HTTP, database, file system).
+# This keeps dependencies minimal and the skill runtime-agnostic.
+#
+# Install: pip install -r requirements.txt
+# Browser automation: playwright-cli is used via the agent's Bash tool.
+#   Install: npm install -g @playwright/cli@latest
+#   Or run:  npx playwright-cli --version
+# ─────────────────────────────────────────────────────────────────────────────
+
+# HTTP calls to ATS APIs (Greenhouse, Lever, Ashby) and job boards
+requests>=2.31.0
+
+# .env file loading for DATABASE_URL, GREENHOUSE_API_KEY, etc.
+python-dotenv>=1.0.0
+
+# PostgreSQL persistence for the job tracking pipeline
+psycopg2-binary>=2.9.9
