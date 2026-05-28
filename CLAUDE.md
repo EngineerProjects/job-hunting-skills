@@ -1,128 +1,84 @@
-# Project conventions — linkedin-skills
+# Project conventions
 
-This file is for any Claude Code agent working on this repository. Read it
-before making changes. Conventions here are mandatory unless the user asks
-otherwise.
+This file is for any Claude Code agent working on this repository.
+Read it before making changes. These conventions are mandatory.
+
+---
+
+## Project identity
+
+This is a personal LinkedIn job-hunting skill suite, forked from linkedin-skills.
+Two pillars: **content** (10 inherited skills) + **outreach** (spontaneous applications).
+See `docs/GOAL.md` for the full vision.
+
+---
 
 ## Versioning
 
-- Single source of truth: `.claude-plugin/plugin.json`,
-  `.claude-plugin/marketplace.json`, `.codex-plugin/plugin.json`, and
-  `.agents/plugins/marketplace.json`. Plugin manifests must always match on
-  package name and version; marketplace entries must point to the same package;
-  author, license, homepage, and the public skill-bundle description must stay
-  aligned.
-- Keep `CLAUDE.md` and `AGENTS.md` aligned when changing shared project
-  rules. Claude-specific workflow details belong here; Codex-specific
-  workflow details belong in `AGENTS.md`.
-- Codex marketplace install uses `.codex-marketplace/linkedin-skills/`.
-  Do not edit that generated package by hand. Update the root files first,
-  then run `python3 scripts/sync_codex_marketplace.py`.
-- **Default: bump the PATCH segment (3rd level, `0.0.X`).** This is the
-  automatic behavior for every shippable commit, regardless of how
-  large the diff feels. Skill renames, lib API breaks, new features:
-  still PATCH by default.
-- Only bump MINOR or MAJOR when **the user explicitly asks** for a
-  higher rank ("это minor", "make it 2.0", "bump major"). Do not
-  promote on your own initiative even if semver textbook says so.
-- After bumping, two steps are required:
-  1. Tag the commit: `git tag -a v<X.Y.Z> -m "..."` + `git push origin v<X.Y.Z>`
-  2. **Publish a GitHub Release** for the tag: `gh release create v<X.Y.Z> --title "v<X.Y.Z>" --notes "<changelog>" --latest`
-  A tag alone does NOT update the README release badge or the
-  Releases page. The shields.io badge reads from the Releases API,
-  not from raw tags. Skipping step 2 leaves the badge stale.
+- Bump the PATCH segment (`0.0.X`) by default for every shippable commit.
+- Bump MINOR or MAJOR only when the user explicitly asks.
+- After bumping:
+  1. `git tag -a v<X.Y.Z> -m "..."`
+  2. `gh release create v<X.Y.Z> --title "v<X.Y.Z>" --notes "<changelog>" --latest`
+
+---
 
 ## Commits
 
-- Primary author **must** be Sergey: every `git commit` needs
-  `--author="Sergey Bulaev <s@bulaev.org>"`. The harness defaults to the
-  Claude identity if you forget; verify with
-  `git log -1 --format='%an <%ae>'` before pushing.
-- Co-author trailer (`Co-Authored-By: Claude ...`) is fine and welcomed.
-- Verify locally before push: build never breaks, no broken refs in
-  `SKILL.md`, library smoke import passes.
+- Co-author trailer is fine: `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>`
+- Verify locally before push: library smoke import passes, no broken refs in SKILL.md files.
 
-## Skill bundle invariants
+---
 
-- **Exactly 10 skills.** Adding requires merging or splitting elsewhere
-  to stay at 10. The number is announced in plugin manifests and the README.
-- **Frontmatter `description:` target ≤ 400 chars** (some bundle-heavy
-  skills land slightly higher when their scope is genuinely broad — keep
-  under 510). Always include a "Not for X (use Y)" disambiguation
-  sentinel when the skill overlaps with a sibling.
-- **No em dashes anywhere in `description:` fields.** Em dashes in body
-  prose are allowed for table separators and list dividers only.
-- **Skill names are public surface.** Renaming a skill is a major
-  version bump and requires updating: `.codex-plugin/plugin.json`,
-  `.agents/plugins/marketplace.json`, `.claude-plugin/plugin.json`,
-  `.claude-plugin/marketplace.json`, root `SKILL.md` bundle list,
-  README skill table, every
-  `linkedin-<name>` cross-reference in sibling SKILL.md files.
+## Skill structure
+
+- No fixed number of skills. Add skills as needed.
+- Frontmatter `description:` target <= 500 chars.
+- No em dashes (`—`) in `description:` frontmatter fields.
+- Skill names are public surface — renaming requires updating all cross-references.
+
+---
 
 ## Voice rules + reference layout
 
-- Canonical voice rules live at root `references/voice-rules.md`.
-  Skill-local "Hard rules" sections must only contain skill-specific
-  overrides (char ranges, threading rules, format constraints) and start
-  with: `Global voice rules: see root SKILL.md §Voice rules.`
-- Other root-level references shared across skills:
-  `references/hook-formulas.md` (10 canonical formulas) and
-  `references/algorithm-heuristics.md`.
-- Skill-local references live in `skills/<skill>/references/`. Cite from
-  the skill with bare `references/X.md`. Cite root from skills with
-  `../../references/X.md`.
-- `linkedin-humanizer` has `sub-skills/` for folded-in workflows
-  (post-audit, emoji-detector, detector-tester, rules-explainer) and
-  `scripts/` for runnable tools. Don't duplicate this pattern in other
-  skills without a clear reason.
+- Canonical voice rules: `references/voice-rules.md`
+- Skill-local overrides in `skills/<skill>/references/voice-rules.md` if needed.
+  Start local overrides with: `Global voice rules: see root references/voice-rules.md`
+- Root references shared across skills: `references/hook-formulas.md`, `references/algorithm-heuristics.md`
+- Cite root references from skills with `../../references/X.md`
+
+---
 
 ## Layer separation
 
-- **Read layer (Apify):** `lib/apify_client.py`. Four methods —
-  `fetch_post`, `fetch_post_comments`, `fetch_user_recent_comments`,
-  `fetch_post_engagers`. All cached (256-entry LRU, 6h TTL, opt-out via
-  `force_refresh=True`). Skills should call these or the
-  `lib.fetch_post(url)` wrapper that handles the APIFY_TOKEN-or-paste
-  fallback.
-- **Write layer (Publora):** `lib/publora_client.py`. Skills should call
-  `lib.publish(kind, draft_text, target_url, ...)` rather than inline
-  the publora / manual / diy dispatch. Real endpoint paths:
-  `POST /create-post`, `POST /linkedin-comments`, `DELETE /linkedin-comments`,
-  `POST /linkedin-reactions`. Publora has no read-side endpoints (no
-  `GET /posts`, no list, no delete-scheduled-post).
-- Don't suggest competitor schedulers (Buffer, Hootsuite, Later) by
-  name in committed files — the bundle is positioned as the canonical
-  Apify-read + Publora-write integration.
+- **Read layer (Apify):** `lib/apify_client.py` — fetch post bodies, comment threads, engagers.
+  Skills call `lib.fetch_post(url)` which handles the APIFY_TOKEN-or-paste fallback.
+- **Write layer (Publora):** `lib/publora_client.py` — post and comment publishing.
+  Skills call `lib.publish(kind, draft_text, target_url, ...)`.
+- **CV build:** `scripts/build_cv.py` — LaTeX to PDF, 1-page enforcement.
+- No LLM calls in scripts. All content generation happens in the running agent.
 
-## Codex marketplace package
+---
 
-- Codex requires marketplace entries to point at a nested plugin directory.
-  The root remains the Claude-facing source layout.
-- `.agents/plugins/marketplace.json` points to
-  `.codex-marketplace/linkedin-skills`.
-- `scripts/sync_codex_marketplace.py` copies the root Codex manifest,
-  `SKILL.md`, `skills/`, `references/`, `lib/`, `scripts/`,
-  `requirements.txt`, `.env.example`, and `LICENSE` into the hidden package.
-- After editing any copied file, run the sync script before testing or
-  committing.
+## Profile
+
+- User profile: `profile/profile.json`
+- CV source: `profile/cv.tex`
+- CV builds (gitignored): `profile/cv_builds/`
+- Outreach log: `profile/outreach_log.json`
+
+---
 
 ## testing/ is gitignored
 
-- `testing/` is the local scratch directory: API keys, sample API
-  responses, validation reports, integration scripts.
-- Never write secrets above `testing/` (the rest of the repo is public).
-- The `.gitignore` rule for `testing/` is load-bearing; do not change.
+Local scratch directory for API keys, sample responses, integration scripts.
+Never write secrets above `testing/`.
+
+---
 
 ## Validation before push
 
-Run from repo root:
-
 ```bash
 python3 -c "from lib import publish, fetch_post, ApifyClient, PubloraClient; print('OK')"
-python3 scripts/sync_codex_marketplace.py
-wc -l SKILL.md skills/*/SKILL.md
-ls skills/ | wc -l        # must equal 10
-grep -nE '^description:' skills/*/SKILL.md SKILL.md | grep -E '—|–'   # must be empty
+grep -rn "Sergey\|bulaev" SKILL.md skills/*/SKILL.md CLAUDE.md AGENTS.md 2>/dev/null  # must be empty
 ```
-
-If any of these fail, do not push.

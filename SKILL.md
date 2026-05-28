@@ -1,14 +1,16 @@
 ---
-name: linkedin-marketing
-description: Plan, draft, audit, and publish LinkedIn posts and comments. Use when the user wants to write a viral LinkedIn post, draft a comment or reply on any LinkedIn post URL, audit a draft against 2026 algorithm heuristics, remove AI tells, extract hook formulas from viral posts, or plan a week of content. Powered by the Publora API for publishing. User provides post/comment URLs, skill drafts content, user approves, then publishes.
+name: linkedin-job-hunting
+description: LinkedIn skills for job hunting and personal branding. Use for: writing LinkedIn posts, drafting comments and replies, auditing drafts for AI tells, extracting hook formulas, planning content, tracking comment threads, analyzing post engagement, optimizing a LinkedIn profile, running employee advocacy -- AND for spontaneous job applications: finding contacts at target companies, adapting a LaTeX CV (1 page max), drafting personalized InMail or DM messages anchored in real company activity. Two pillars: content and outreach.
 ---
 
-# LinkedIn Marketing Skills
+# LinkedIn Job Hunting Skills
 
-A bundle of 10 focused skills for LinkedIn content ops in 2026. Each skill is single-purpose, follows the draft → approval → publish pattern, and uses the [Publora API](https://publora.com) for posting.
+Two pillars: **content** (visibility and personal branding) and **outreach** (spontaneous applications).
+Each skill is single-purpose and follows the draft -> approval pattern. Nothing is published or sent without explicit confirmation.
 
 ## When to use this bundle
 
+- **Envoyer une candidature spontanée, trouver un contact chez une entreprise, préparer un dossier, adapter mon CV, rédiger un InMail, chercher des entreprises qui recrutent** → use `linkedin-outreach`
 - **Writing a viral post** → use `linkedin-post-writer`
 - **Commenting on someone else's post** → use `linkedin-comment-drafter`
 - **Replying to a comment** (yours or someone else's) → use `linkedin-reply-handler`

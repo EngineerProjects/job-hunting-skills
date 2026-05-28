@@ -1,0 +1,74 @@
+{
+  "_comment": "Ton profil utilisateur. Remplis tous les champs avant d'utiliser le skill linkedin-outreach.",
+
+  "personal": {
+    "name": "Ton Nom",
+    "email": "toi@example.com",
+    "phone": "+33 6 00 00 00 00",
+    "linkedin_url": "https://linkedin.com/in/ton-handle",
+    "github_url": "https://github.com/ton-handle",
+    "location": "Paris, France",
+    "portfolio_url": ""
+  },
+
+  "preferences": {
+    "seniority": "senior",
+    "remote": "remote",
+    "locations": ["Paris", "Remote France", "Remote Europe"],
+    "company_types": ["startup", "scale_up"],
+    "avoid_company_types": ["consulting", "ESN", "SSII"],
+    "salary_target_eur": 85000,
+    "salary_min_eur": 70000,
+    "notice_period_days": 30,
+    "open_to_relocation": false,
+    "message_language": "auto"
+  },
+
+  "stack": {
+    "must_have": ["python", "sql"],
+    "strong": ["spark", "dbt", "langchain", "langgraph", "fastapi", "docker", "kafka", "airflow"],
+    "nice_to_have": ["go", "databricks", "rag", "vector_db", "kubernetes", "terraform"],
+    "avoid": ["php", "wordpress", "ruby", "cobol"]
+  },
+
+  "experience": {
+    "current_title": "Senior Data Engineer",
+    "years_total": 6,
+    "domains": ["data_engineer", "genai_engineer", "ml_engineer"]
+  },
+
+  "cv": {
+    "source": "./profile/cv.tex",
+    "builds_dir": "./profile/cv_builds",
+    "max_pages": 1
+  },
+
+  "targets": {
+    "_comment": "Liste optionnelle d'entreprises à cibler en priorité. L'agent complétera avec l'auto-discovery.",
+    "manual": [
+      {
+        "company": "Mistral AI",
+        "linkedin_company_url": "https://linkedin.com/company/mistral-ai",
+        "notes": "Stack LLM, Paris"
+      },
+      {
+        "company": "Hugging Face",
+        "linkedin_company_url": "https://linkedin.com/company/huggingface",
+        "notes": "Open source AI, remote-friendly"
+      }
+    ],
+    "auto_discovery": {
+      "enabled": true,
+      "locations": ["Paris", "Ile-de-France", "France"],
+      "industries": ["Technology", "Artificial Intelligence", "Software Development"],
+      "company_size": ["11-50", "51-200", "201-500"],
+      "max_per_session": 5
+    }
+  },
+
+  "outreach": {
+    "max_per_session": 5,
+    "follow_up_days": 7,
+    "cooldown_days": 30
+  }
+}

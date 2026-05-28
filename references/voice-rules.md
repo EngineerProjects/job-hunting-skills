@@ -43,3 +43,47 @@ LinkedIn's ranker runs NLP on comments and rewards:
 - **Sub-thread sparks** — comments that generate replies from the author AND other commenters count as a strong signal
 
 **Before submitting, check:** does your comment add at least one noun/concept not already in the post? If no, rewrite.
+
+---
+
+# Voice Rules for Outreach (linkedin-outreach skill)
+
+Outreach messages (InMail, DM, connection notes) have different constraints from public content. Lower stakes editorially, higher stakes personally — one bad message poisons the contact.
+
+## Hard rules
+
+1. **Anchor first**: the first sentence must be about the company or contact, not about you. "I saw your Series B announcement" before anything about your background.
+2. **No em dashes, no vocabulary blacklist** — same as comments. If pdflatex generated it, a recruiter will feel it.
+3. **One CTA max**: end with exactly one ask. "Happy to sync for 20 min if there's a fit" — not two options, not "feel free to".
+4. **Active voice throughout**: "I'm attaching my CV" not "please find attached". "I'd like a call" not "I would love the opportunity to discuss".
+5. **Language matching**: detect company nationality from their LinkedIn page language. French company = FR. International / remote-first = EN. Never mix languages in one message.
+6. **No desperation signals**: avoid "currently seeking", "actively looking", "I would be thrilled", "dream company". State facts. Let fit speak.
+
+## Forbidden openers (instantly discard)
+
+- "Je me permets de vous contacter"
+- "I hope this message finds you well"
+- "I came across your profile"
+- "Je suis actuellement à la recherche d'opportunités"
+- "I am reaching out because I am passionate about"
+- Any variant of "I was impressed by your company"
+
+## Structure rules
+
+- InMail / DM: anchor (1 sentence) + why them (1-2 sentences) + why you (2-3 sentences with one number) + CTA (1 sentence)
+- Connection note: anchor (1 sentence) + one-liner on yourself + soft CTA — max 300 chars total
+- Follow-up: reference original message date + one exit ramp ("no worries if timing is off") + redirect ask — never beg
+
+## Numbers beat adjectives
+
+"6 years in data engineering, most recently reduced Spark costs by 40%" beats "experienced data professional with a strong background". One number per message minimum.
+
+## Character limits
+
+| Message type | Limit |
+|---|---|
+| InMail / DM | 1,900 chars |
+| Connection request note | 300 chars |
+| Follow-up | 350 chars recommended |
+
+Stay well under the hard limit — long messages get skimmed, not read.

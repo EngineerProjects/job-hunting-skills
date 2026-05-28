@@ -1,94 +1,107 @@
 # CV Adapter Agent
 
-Read this when selecting and tailoring a CV for a specific job offer.
+Read this when adapting `profile/cv.tex` for a specific company target.
 
 ---
 
 ## Role
 
-Given a ParsedOffer and the user's CV library (`~/.job-hunting/cvs/`), select the best CV variant, produce specific tailoring recommendations, and generate a keyword-optimised version for ATS parsing.
+Given a target company's context (what they build, their stack, the contact's role),
+modify the LaTeX CV source to surface the most relevant bullets and build a 1-page PDF.
+
+The source is always `profile/cv.tex`. Never modify it directly — work on a copy.
 
 ---
 
-## Selection Logic
+## Adaptation Logic
 
-### Step 1 — Detect job type
-Run `skills/adapt-cv/scripts/detect_job_type.py` on the ParsedOffer.
-The script returns job_type + confidence + signals_matched.
+### Step 1 — Understand the target context
 
-### Step 2 — Match CV variants
-Load all `cv_metadata.json` files from the CV directory.
-Each metadata file has: `{variant_id, job_types, language, stack_highlights, target_company_type, file_path}`.
+Collect before touching the .tex:
+- What does the company build? (product type, domain)
+- What stack signals did you find? (from their posts, job listings, About page)
+- What role are you applying for? (data engineer, GenAI engineer, backend, etc.)
+- What did the contact post about recently? (technical depth? culture? specific problems?)
 
-Score each variant:
-- job_type match: +0.5 if this variant's job_types includes the detected job_type
-- stack overlap: count how many ParsedOffer.required_stack items are in cv_metadata.stack_highlights
-- language: +0.3 if language matches (offer location France → FR variant; English → EN variant)
-- company_type: +0.2 if target_company_type matches offer's company_type
+### Step 2 — Read the CV source
 
-### Step 3 — Select and explain
-Present: "Best CV: `cv_data_engineer_en.pdf` (variant score: 0.88)"
-Explain why (1 sentence per factor).
+Open `profile/cv.tex`. Identify:
+- `% @tag` annotations on bullet points (e.g., `% @data_engineer`, `% @genai`, `% @backend`)
+- The summary/objective section (usually 2-3 lines at the top)
+- The skills/stack section
+- Experience sections with their bullets
 
----
+### Step 3 — Select relevant content
 
-## Tailoring Recommendations
+**Include bullets where:**
+- Tags match the target role type
+- Technology names overlap with the company's known stack
+- Project scale / domain matches the company's context
 
-After selecting the CV, analyse the gap between ParsedOffer and the selected CV's stack_highlights.
+**De-prioritize or hide bullets where:**
+- Tags don't match (e.g., hide consulting-heavy bullets for a startup target)
+- Stack is in profile.stack.avoid
+- Experience is older than 5 years AND there are more recent equivalent bullets
 
-Generate 4 categories of tailoring advice:
+**Summary section:** rewrite 1-2 lines to match the company's focus.
+Example: for a RAG-heavy company, bring "LLM pipeline" language to the top.
+Keep it factual — no buzzword inflation.
 
-**1. Keywords to add (for ATS parsing)**
-List specific terms from ParsedOffer.required_stack that should appear verbatim in the CV.
-Example: "Add 'LangGraph' and 'RAG' to your skills section — they appear in the job description"
+### Step 4 — Build the PDF
 
-**2. Sections to highlight**
-Based on job_type, suggest which projects/experiences to move to the top.
-Example: "For this GenAI role, move your RAG pipeline project above the Spark streaming project"
+Save modified content to `/tmp/cv_adapted_{company_slug}.tex`, then:
 
-**3. Metrics to include**
-If the offer mentions scale (TB of data, millions of users), suggest matching with your scale metrics.
-Example: "They mention 'petabyte-scale' — add your Spark job processing volume if relevant"
+```bash
+python scripts/build_cv.py \
+  --input /tmp/cv_adapted_{company_slug}.tex \
+  --output profile/cv_builds/cv_{company_slug}_{YYYYMMDD}.pdf
+```
 
-**4. Skills to downplay**
-If you have prominent skills that are in the avoid_company_type's typical stack (e.g. consulting-heavy CV for a startup), suggest de-emphasising them.
+If the build fails with "> 1 page":
+1. Remove 1-2 bullets from the oldest / least relevant experience
+2. If still too long: shorten the summary by 1 line
+3. Rebuild
+4. Never touch layout/spacing to force fit — fix content instead
 
----
+### Step 5 — Report changes
 
-## When to Create a New CV Variant
+Tell the user exactly what was adapted:
 
-Suggest creating a new variant when:
-- User has applied to 3+ jobs of a new job_type with no exact variant match
-- The required stack is more than 40% different from all existing variants
-- User is targeting a new geography (e.g. UK market for the first time)
-
-Guide the user: "You don't have a `backend_engineer_en` variant. Want me to suggest what it should include?"
-
----
-
-## Language Decision Rules
-
-| Company location | Offer language | → CV language |
-|---|---|---|
-| France | French | French |
-| France | English | English (international companies) |
-| EU non-FR | English | English |
-| UK | English | English |
-| Remote (FR company) | French | French |
-| Remote (US/UK company) | English | English |
-
-If uncertain: default to English. For French consulting roles, French is always preferred.
+```
+CV adapted for [Company]:
+- Summary: replaced "data platform" focus with "LLM/RAG pipeline" focus
+- Foregrounded: [Project X] (matches their RAG use case)
+- De-emphasized: [Project Y] (legacy ETL, irrelevant here)
+- Removed: 1 consulting bullet from 2021 (not relevant for startup)
+- Built: profile/cv_builds/cv_mistral_20260528.pdf — 1 page ✓
+```
 
 ---
 
-## ATS Keyword Optimisation
+## LaTeX Annotation Convention
 
-Modern ATS systems (Greenhouse, Lever, Workday) parse CVs for keyword density.
-Without keyword stuffing, ensure:
+Bullets in `profile/cv.tex` should follow this pattern:
 
-1. Every technology in ParsedOffer.required_stack appears at least once in the CV
-2. Job title used in the offer appears in the CV summary or current role
-3. Important compound terms appear exactly: "Large Language Models" not just "LLM" if the job uses the full form
-4. Section headers use standard names: "Experience", "Skills", "Education" — not creative alternatives
+```latex
+\item Built a real-time feature store serving 50M events/day % @data_engineer @backend
+\item Fine-tuned Mistral-7B on internal codebase for code review % @genai @llm
+\item Led migration from Airflow to Prefect across 3 data teams % @data_engineer @platform
+```
 
-These checks are non-negotiable for passing ATS screening.
+The agent reads the `% @tag` comment at end of line to decide inclusion.
+If a bullet has no tag: include by default (generic experience).
+
+---
+
+## 1-Page Constraint
+
+This is non-negotiable. Every CV sent is 1 page.
+
+Reasons:
+- Recruiters in France and Europe spend < 30 seconds on a first read
+- 1-page forces prioritization — the best bullets surface, the noise disappears
+- A 2-page CV from a 6-year engineer signals poor editing judgment
+
+If the CV cannot fit in 1 page even after removing lower-priority bullets:
+Stop and tell the user which section needs manual shortening in `profile/cv.tex`.
+Do not send a 2-page CV.
