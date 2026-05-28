@@ -8,7 +8,7 @@
 4. **Sentence starts can be lowercase** (natural voice), but names inside are always capitalized.
 5. **Don't mention the user's own product by name** in comments on third-party posts. Describe what they do instead ("our AI content system", "the platform we're building").
 
-## Vocabulary blacklist
+## Vocabulary blacklist (EN)
 
 Never use in comments:
 - leverage, utilize, facilitate, streamline, robust, seamless, delve, navigate, unlock, harness, foster, cultivate
@@ -17,6 +17,47 @@ Never use in comments:
 - "It's not just X, it's Y"
 - "In today's fast-paced world"
 - "Game-changer", "deep dive", "at the end of the day"
+
+## Vocabulary blacklist (FR) — mots à ne jamais écrire
+
+Ces mots sonnent AI immédiatement. En français, les tells sont souvent des adverbes longs
+et des tournures de dissertation.
+
+**Adverbes et intensificateurs IA :**
+- particulièrement, notamment, essentiellement, fondamentalement, principalement
+- indéniablement, incontestablement, véritablement, réellement (quand utilisé pour insister)
+- significativement, considérablement, substantiellement
+
+**Verbes et expressions de dissertation :**
+- souligner, mettre en lumière, mettre en exergue, mettre en avant (quand c'est juste "dire")
+- il convient de, il est important de noter, il est essentiel de
+- permettre de (surutilisé — trouver le vrai verbe)
+- s'inscrire dans, s'articuler autour, s'appuyer sur
+- force est de constater
+- dans ce contexte, à cet égard, en la matière
+
+**Connecteurs de rédaction scolaire :**
+- dans un premier temps... dans un second temps... enfin
+- par ailleurs, qui plus est, de surcroît
+- quoi qu'il en soit, néanmoins (quand il n'y a pas de vrai contraste)
+- ainsi (en début de phrase pour conclure)
+- en effet (pour introduire ce qui est évident)
+
+**Ouvertures IA typiques :**
+- "Dans un monde où..."
+- "À l'heure où..."
+- "Il est indéniable que..."
+- "Cette approche innovante..."
+- "C'est dans ce contexte que..."
+- "Bien que [X], il n'en demeure pas moins que..."
+
+**Mots valises :**
+- optimiser, fluidifier, dynamiser, valoriser (sans complément concret)
+- synergies, écosystème, paradigme, trajectoire (dans un sens vague)
+- approche, démarche (quand on peut dire le truc directement)
+
+**Règle de remplacement :** si tu retires le mot et la phrase dit la même chose, retire-le.
+"Il est important de noter que les résultats sont bons" → "Les résultats sont bons."
 
 ## Structure
 
